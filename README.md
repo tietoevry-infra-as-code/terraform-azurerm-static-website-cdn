@@ -24,7 +24,7 @@ Following example to create a storage account and set up a static website with C
 
 ```
 module "staticweb" {
-  source                  = "github.com/tietoevry-cloud-infra/terraform-azurerm-static-website-cdn?ref=v1.1.0"
+  source                  = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v1.0.0"
   create_resource_group   = false
   resource_group_name     = "rg-demo-westeurope-01"
   location                = "westeurope"
@@ -99,6 +99,10 @@ Name | Description
 `static_website_url`|Static web site URL from storage account
 `static_website_cdn_profile_name`|Name of the CDN profile
 `static_website_cdn_endpoint_url`| CDN URL for static website
+
+## Resource Graph
+
+![Resource Graph](graph.png)
 
 ## Authors
 

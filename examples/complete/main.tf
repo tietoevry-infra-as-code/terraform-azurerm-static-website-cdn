@@ -1,5 +1,5 @@
 module "staticweb" {
-  source                  = "github.com/tietoevry-cloud-infra/terraform-azurerm-static-website-cdn?ref=v1.1.0"
+  source                  = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v1.0.0"
   create_resource_group   = false
   resource_group_name     = "rg-demo-westeurope-01"
   location                = "westeurope"
