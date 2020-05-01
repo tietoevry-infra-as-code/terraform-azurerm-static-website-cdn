@@ -23,25 +23,29 @@ Note: *static_website can only be created when the account_kind is set to Storag
 Following example to create a storage account and set up a static website with CDN endpoint.
 
 ```
-module "staticweb" {
+module "static-website-cdn" {
   source                  = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v1.0.0"
+
+# Resource Group
   create_resource_group   = false
   resource_group_name     = "rg-demo-westeurope-01"
   location                = "westeurope"
   storage_account_name    = "storageaccwesteupore01"
-  # Static Website options
+
+# Static Website options
   enable_static_website   = true
   static_website_source_folder = var.static_website_source_folder
+
 # CDN endpoint for satic website
   enable_cdn_profile      = true
   cdn_profile_name        = var.cdn_profile_name
   cdn_sku_profile         = var.cdn_sku_profile
+
+# Tags for Azure Resources  
   tags = {
-    application_name      = "demoapp01"
-    owner_email           = "user@example.com"
-    business_unit         = "publiccloud"
-    costcenter_id         = "5847596"
-    environment           = "development"
+    Terraform   = "true"
+    Environment = "dev"
+    Owner       = "test-user"
   }
 }
 ```
@@ -70,6 +74,27 @@ An output can be marked as containing sensitive material using the optional `sen
 Setting an output value in the root module as sensitive prevents Terraform from showing its value in the list of outputs at the end of `terraform apply`. It might still be shown in the CLI output for other reasons, like if the value is referenced in an expression for a resource argument.
 
 Sensitive output values are still recorded in the [state](https://www.terraform.io/docs/state/index.html), and so will be visible to anyone who is able to access the state data. Storing state remotely can provide better security. For more information, see [Sensitive Data in State.](https://www.terraform.io/docs/state/sensitive-data.html)
+
+## Adding TAG's to your Azure resources
+
+Use tags to organize your Azure resources and management hierarchy. You can apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production. You can manage these values variables directly or mapping as a variable using `variables.tf`.
+
+All network resources which support tagging can be tagged by specifying key-values in argument `tags`. Tag Name is added automatically on all resources. For example, you can specify `tags` like this as per environment:
+
+```
+module "static-website-cdn" {
+  source                = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v1.0.0"
+  create_resource_group = false
+
+  # ... omitted
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+    Owner       = "test-user"
+  }
+}
+```
 
 ## Inputs
 

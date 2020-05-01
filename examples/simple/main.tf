@@ -1,18 +1,20 @@
-module "staticweb" {
+module "static-website-cdn" {
   source                  = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v1.0.0"
+
+# Resource Group
   create_resource_group   = false
   resource_group_name     = "rg-demo-westeurope-01"
   location                = "westeurope"
   storage_account_name    = "storageaccwesteupore01"
-  # Static Website options
+
+# Static Website options
   enable_static_website   = true
   static_website_source_folder = var.static_website_source_folder
-  # Tags to map 
+
+# Tags for Azure Resources  
   tags = {
-    application_name      = "demoapp01"
-    owner_email           = "user@example.com"
-    business_unit         = "publiccloud"
-    costcenter_id         = "5847596"
-    environment           = "development"
-  }             
+    Terraform   = "true"
+    Environment = "dev"
+    Owner       = "test-user"
+  }
 }
