@@ -10,7 +10,7 @@ Following example to create a storage account with static website.
 
 ```hcl
 module "static-website-cdn" {
-  source = "github.com/tietoevry-cloud-infra/terraform-azurerm-static-website-cdn?ref=v2.0.0"
+  source = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v2.0.0"
 
   # Resource Group, location, and Storage account details
   resource_group_name  = "rg-demo-westeurope-01"
@@ -40,7 +40,7 @@ Following example to create a storage account, static website with CDN endpoint.
 
 ```hcl
 module "static-website-cdn" {
-  source = "github.com/tietoevry-cloud-infra/terraform-azurerm-static-website-cdn?ref=v2.0.0"
+  source = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v2.0.0"
 
   # Resource Group, location, and Storage account details
   resource_group_name  = "rg-demo-westeurope-01"

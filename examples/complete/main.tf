@@ -1,5 +1,5 @@
 module "static-website-cdn" {
-  source = "github.com/tietoevry-cloud-infra/terraform-azurerm-static-website-cdn?ref=v2.0.0"
+  source = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v2.0.0"
 
   # Resource Group, location, and Storage account details
   create_resource_group = true
