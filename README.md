@@ -156,7 +156,7 @@ module "vnet-hub" {
 
 ## Authors
 
-Originally created by [Kumaraswamy Vithanala (Kumar)](mailto:kumar.swamy@tieto.com)
+Originally created by [Kumaraswamy Vithanala (Kumar)](mailto:kumaraswamy.vithanala@tieto.com)
 
 ## Other resources
 
