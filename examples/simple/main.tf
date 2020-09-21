@@ -1,5 +1,6 @@
 module "static-website-cdn" {
-  source = github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v2.0.0
+  source  = "kumarvna/static-website-cdn/azurerm"
+  version = "2.0.0"
 
   # Resource Group, location, and Storage account details
   resource_group_name  = "rg-demo-westeurope-01"
@@ -14,7 +15,7 @@ module "static-website-cdn" {
 
   # Adding TAG's to your Azure resources (Required)
   tags = {
-    ProjectName  = "tieto-internal"
+    ProjectName  = "demo-project"
     Env          = "dev"
     Owner        = "user@example.com"
     BusinessUnit = "CORP"

@@ -16,7 +16,8 @@ These types of resources are supported
 
 ```hcl
 module "static-website-cdn" {
-  source = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v2.0.0"
+  source  = "kumarvna/static-website-cdn/azurerm"
+  version = "2.0.0"
 
   # Resource Group, location, and Storage account details
   resource_group_name  = "rg-demo-westeurope-01"
@@ -35,7 +36,7 @@ module "static-website-cdn" {
 
   # Adding TAG's to your Azure resources (Required)
   tags = {
-    ProjectName  = "tieto-internal"
+    ProjectName  = "demo-project"
     Env          = "dev"
     Owner        = "user@example.com"
     BusinessUnit = "CORP"
@@ -90,19 +91,20 @@ End Date of the Project|Date when this application, workload, or service is plan
 > This module allows you to manage the above metadata tags directly or as a variable using `variables.tf`. All Azure resources which support tagging can be tagged by specifying key-values in argument `tags`. Tag `ResourceName` is added automatically to all resources.
 
 ```hcl
-module "vnet-hub" {
-  source = "github.com/tietoevry-infra-as-code/terraform-azurerm-static-website-cdn?ref=v2.0.0"
+module "static-website-cdn" {
+  source  = "kumarvna/static-website-cdn/azurerm"
+  version = "2.0.0"
 
   # ... omitted
 
   tags = {
-    ProjectName  = "tieto-internal"
+    ProjectName  = "demo-project"
     Env          = "dev"
     Owner        = "user@example.com"
     BusinessUnit = "CORP"
     ServiceClass = "Gold"
   }
-}
+}  
 ```
 
 ## Requirements
@@ -110,13 +112,13 @@ module "vnet-hub" {
 | Name | Version |
 |------|---------|
 | terraform | >= 0.13 |
-| azurerm | ~> 2.23 |
+| azurerm | ~> 2.27 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| azurerm | ~> 2.23 |
+| azurerm | ~> 2.27 |
 | null | n/a |
 | random | n/a |
 
@@ -156,7 +158,7 @@ module "vnet-hub" {
 
 ## Authors
 
-Originally created by [Kumaraswamy Vithanala (Kumar)](mailto:kumaraswamy.vithanala@tieto.com)
+Originally created by [Kumaraswamy Vithanala](mailto:kumaraswamy.vithanala@tieto.com)
 
 ## Other resources
 
