@@ -1,3 +1,5 @@
+> ## This repository is no longer maintained actively. Please visit https://github.com/kumarvna?tab=repositories for the latest updates.
+
 # Azure Static website with CDN Endpoint Terraform Module
 
 Terraform Module to create an Azure storage account and enable the static website also creates optional CDN service for the static website.
